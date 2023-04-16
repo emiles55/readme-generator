@@ -3,11 +3,20 @@ const inquirer = import('inquirer');
 const fs = import('fs');
 const generateMarkdown = import("./utils/generateMarkdown");
 // TODO: Create an array of questions for user input
-const questions = [{
+inquirer.prompt( [{
     type: "input",
     name: "title",
     message: "What is your project title?"
-}];
+},
+{
+    type: "input",
+    name: "description",
+    message: "Give a short description of the project: "
+},
+])
+.then((answer) => {
+    console.log("Hello " + answer.user_name);
+  });
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
